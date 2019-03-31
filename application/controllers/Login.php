@@ -11,7 +11,7 @@ class login extends CI_Controller {
 
 	public function index()
 	{
-		$this->load->view('v_Login');
+		$this->load->view('V_login');
 	}
 
 	public function doLogin()
