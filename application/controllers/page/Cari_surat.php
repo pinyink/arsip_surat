@@ -43,6 +43,7 @@ class Cari_surat extends CI_Controller {
 					}
 				}
 				if ($dasar == 3) {
+					$this->load->model('M_keluar');
 					$this->form_validation->set_rules('tgl', 'tgl', 'trim|min_length[10]|max_length[10]|required');
 					$tgl = $this->input->post("tgl");
 					if ($this->form_validation->run() == FALSE) {
@@ -51,12 +52,17 @@ class Cari_surat extends CI_Controller {
 					} else {
 						# code...
 						$data['kode'] =2;
+						$data['j'] = 1;
+						$data['hasil'] = $this->M_keluar->show_group(array("DATE_FORMAT(a.tanggal_sulur,'%d-%m-%Y')" => $tgl))->result();
+						$data['surat'] = "Surat Keluar";
+						// $data['hasil'] = array();
 					}
 				}
 			}
 			if ($jenis == 2) {
 				# code...
 				# code...
+				$this->load->model('M_masuk');
 				if ($dasar == 1) {
 					$this->form_validation->set_rules('no', 'no Surat', 'trim|min_length[1]|max_length[32]|required');
 					$no = $this->input->post("no");
@@ -83,10 +89,13 @@ class Cari_surat extends CI_Controller {
 					$this->form_validation->set_rules('tgl', 'tgl', 'trim|min_length[10]|max_length[10]|required');
 					$tgl = $this->input->post("tgl");
 					if ($this->form_validation->run() == FALSE) {
-						# code...
+						# code...show_group()->
 						$data['error'] = validation_errors();
 					} else {
 						# code...
+						$data['surat'] = "Surat Masuk";
+						$data['j'] = 2;
+						$data['hasil'] = $this->M_masuk->show_group(array("DATE_FORMAT(a.tgl_suma,'%d-%m-%Y')"=> $tgl))->result();
 						$data['kode'] =2;
 					}
 				}

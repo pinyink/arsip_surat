@@ -123,6 +123,21 @@ class M_keluar extends CI_Model {
 		return $this->db->affected_rows();
 	}
 
+	public function show_group($value=array())
+	{
+		# code...
+		$this->db->select("a.id_sulur, a.kode_sulur, a.nomer_sulur, a.kepada_sulur, a.perihal_sulur, 
+			DATE_FORMAT(a.tanggal_sulur,'%d-%m-%Y') as tgl,b.nama_bidang, GROUP_CONCAT(c.deskripsi SEPARATOR '|') deskripsi, 
+			GROUP_CONCAT(c.path SEPARATOR '|') as path");
+		$this->db->from('tbl_surat_keluar as a');
+		$this->db->join('tbl_bidang as b', 'a.pengolah_sulur = b.id_bidang', 'left');
+		$this->db->join('tbl_scan_sulur as c', 'a.id_sulur = c.id_sulur', 'left');
+		$this->db->where($value);
+		$this->db->group_by('a.id_sulur');
+		$this->db->order_by('a.id_sulur', 'desc');
+		return $this->db->get();
+	}
+
 }
 
 /* End of file M_keluar.php */

@@ -124,6 +124,22 @@ class M_masuk extends CI_Model {
 		return $this->db->affected_rows();
 	}
 
+	public function show_group($value=array())
+	{
+		# code...
+		$this->db->select("a.id_suma, a.no_suma, a.pengirim_suma, a.perihal_suma,
+		 DATE_FORMAT(a.diterima_suma,'%d-%m-%Y') as tgl_terima, a.disposisi, 
+		 DATE_FORMAT(a.tgl_suma,'%d-%m-%Y') as tgl, b.nama_bidang, 
+		 GROUP_CONCAT(c.deskripsi SEPARATOR '|') as deskripsi, GROUP_CONCAT(c.path SEPARATOR '|') as path");
+		$this->db->from("tbl_suma as a");
+		$this->db->join('tbl_bidang as b', 'a.bidang = b.id_bidang', 'left');
+		$this->db->join('tbl_scan_suma as c', 'a.id_suma = c.id_suma', 'left');
+		$this->db->where($value);
+		$this->db->group_by('a.id_suma');
+		$this->db->order_by('a.id_suma', 'desc');
+		return $this->db->get();
+	}
+
 }
 
 /* End of file M_masuk.php */

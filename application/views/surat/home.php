@@ -73,8 +73,8 @@
 						<div id="dasar" class="col-lg-10">
 							<select class="form-control mt-20" name="dasar" required>
 								<option value="" style="color:black">Pilih Dasar Pencarian</option>
-								<option value="1" style="color:black">No Surat</option>
-								<option value="2" style="color:black">Bidang/pengolah</option>
+								<!-- <option value="1" style="color:black">No Surat</option>
+								<option value="2" style="color:black">Bidang/pengolah</option> -->
 								<option value="3" style="color:black">Tanggal</option>
 							</select>
 						</div>
@@ -116,26 +116,66 @@
 			<div class="overlay"></div>
 			<div class="container">
 				<div class="row">
+					<?php if ($j == 1): ?>
+					<?php foreach ($hasil as $k): ?>
 					<div class="col-lg-4 col-sm-6 d-flex align-items-stretch">
 						<div class="single-feature">
-							<h3>Surat Masuk</h3>
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-							tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-							quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-							consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-							cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-							<!-- <div class="icon">
-								<span class="lnr lnr-laptop"></span>
+							<div class="icon">
+								<span class="lnr lnr-envelope"></span>
 							</div>
 							<div class="desc">
-								<h2 class="text-uppercase">The Skinny On Lcd <br>Monitors</h2>
-								<p>
-									Computers have become ubiquitous in almost every facet of our lives. At work, desk jockeys spend hours in front of their
+								<h2 class="text-uppercase"><?php echo $surat; ?></h2>
+								<p>No Surat <b><?php echo $k->kode_sulur; ?>/<?php echo $k->nomer_sulur; ?></b> Kepada <b><?php echo $k->kepada_sulur; ?></b> Di Kirim pada <b><?php echo $k->tgl; ?></b>
+									dengan perihal <b><?php echo $k->perihal_sulur; ?></b><br/>
+									Bidang <b><?php echo $k->nama_bidang; ?></b><br/>
+									<br/>
+									<?php if (isset($k->deskripsi) or $k->deskripsi != ''): ?>
+									<b>File Upload</b><br/>
+									<?php $p = explode('|', $k->deskripsi);
+										$q = explode('|', $k->path);
+										foreach ($p as $y => $v) {
+											echo "<a href='".base_url()."assets/image/surat/keluar/".$q[$y]."'><b>".$v."</b> <span class='lnr lnr-download'></span></a><br/>";
+										}
+									 ?>
+									 <?php endif ?>
 								</p>
-							</div> -->
+							</div>
 						</div>
 					</div>
+					<?php endforeach ?>
+					<?php endif ?>
+					<?php if ($j == 2): ?>
+					<?php foreach ($hasil as $k): ?>
+					<div class="col-lg-4 col-sm-6 d-flex align-items-stretch">
+						<div class="single-feature">
+							<div class="icon">
+								<span class="lnr lnr-envelope"></span>
+							</div>
+							<div class="desc">
+								<h2 class="text-uppercase"><?php echo $surat; ?></h2>
+								<p>No Surat <b><?php echo $k->no_suma; ?></b> Dari <b><?php echo $k->pengirim_suma; ?></b> Di terima pada <b><?php echo $k->tgl_terima; ?></b>
+									dengan perihal <b><?php echo $k->perihal_suma; ?></b><br/>
+									Disposisi <b><?php echo $k->disposisi; ?></b><br/>
+									Bidang <b><?php echo $k->nama_bidang; ?></b><br/>
+									<br/>
+									<?php if (isset($k->deskripsi) or $k->deskripsi != ''): ?>
+									<b>File Upload</b><br/>
+									<?php 
+										$p = explode('|', $k->deskripsi);
+										$q = explode('|', $k->path);
+										$z = 0;
+										foreach ($p as $y => $v) {
+											echo "<a target='_blank' href='".base_url()."assets/image/surat/masuk/".$q[$z]."'><b>".$v."</b> <span class='lnr lnr-download'></span></a><br/>";
+										$z++;
+										}
+									 ?>
+									 <?php endif ?>
+								</p>
+							</div>
+						</div>
+					</div>
+					<?php endforeach ?>
+					<?php endif ?>
 				</div>
 			</div>
 		</section>
