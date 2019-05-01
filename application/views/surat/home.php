@@ -101,15 +101,15 @@
 			</div>
 		</section>
 		<!-- End Conatct- Area -->
+		<?php if ($error != 1): ?>
 		<div>
 			<br/>
-			<?php if ($error != 1): ?>
 			<div class="alert alert-danger text-center">
 				<h4><?php echo $error; ?></h4>
 			</div>
-			<?php endif ?>
 			<br/>
 		</div>
+		<?php endif ?>
 		<?php if ($kode == 2): ?>
 		<!-- Start Feature Area -->
 		<section class="feature-area pt-100 pb-100  relative">

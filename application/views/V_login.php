@@ -30,7 +30,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
   <div class="login-logo">
-    <a href="#"><b>SIM</b>Surat</a>
+    <a href="<?php echo base_url().'/page/cari_surat'; ?>"><b>SIM</b>Surat</a>
   </div>
   <!-- /.login-logo -->
   <div class="login-box-body">
