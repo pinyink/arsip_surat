@@ -103,11 +103,7 @@
 		<!-- End Conatct- Area -->
 		<?php if ($error != 1): ?>
 		<div>
-			<br/>
-			<div class="alert alert-danger text-center">
-				<h4><?php echo $error; ?></h4>
-			</div>
-			<br/>
+			<h4><?php echo $error; ?></h4>
 		</div>
 		<?php endif ?>
 		<?php if ($kode == 2): ?>

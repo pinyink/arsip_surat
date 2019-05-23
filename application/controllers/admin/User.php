@@ -8,7 +8,7 @@ class User extends CI_Controller {
 		parent::__construct();
 		$this->load->model('M_user');
 		$this->load->library('template');
-        $this->template->authlogin();
+        $this->template->if_admin();
 		$this->template->set('title',"welcome to adminlte");
         $this->_init();
 	}

@@ -59,9 +59,9 @@
     <!-- Logo -->
     <a href="<?php echo base_url(); ?>home" class="logo">
       <!-- mini logo for sidebar mini 50x50 pixels -->
-      <span class="logo-mini"><b>A</b>LT</span>
+      <span class="logo-mini"><b>E</b>ARCHIVE</span>
       <!-- logo for regular state and mobile devices -->
-      <span class="logo-lg"><b>Admin</b>LTE</span>
+      <span class="logo-lg"><b>ARSIP</b>SURAT</span>
     </a>
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
@@ -95,14 +95,8 @@
               <!-- Menu Body -->
               <li class="user-body">
                 <div class="row">
-                  <div class="col-xs-4 text-center">
-                    <a href="#"></a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#"></a>
-                  </div>
-                  <div class="col-xs-4 text-center">
-                    <a href="#"></a>
+                  <div class="col-xs-12 text-center">
+                    <strong>Create by Pindi</strong><br/>Show My <a target="_blank" href="https://github.com/pinyink">Github</a> <!-- please dont change this --> <!-- hargai kami selaku pembuat aplikasi -->
                   </div>
                 </div>
                 <!-- /.row -->
@@ -138,7 +132,7 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1
     </div>
-    <strong>SIM Surat</strong>
+    <strong>SIM Surat Created By Pindi</strong> <a href="https://github.com/pinyink">Github</a> <!-- please dont change this --> <!-- hargai kami selaku pembuat aplikasi -->
   </footer>
 
   <!-- control-sidebar -->
