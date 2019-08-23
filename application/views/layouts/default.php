@@ -132,7 +132,8 @@
     <div class="pull-right hidden-xs">
       <b>Version</b> 1
     </div>
-    <strong>SIM Surat Created By Pindi</strong> <a href="https://github.com/pinyink">Github</a> <!-- please dont change this --> <!-- hargai kami selaku pembuat aplikasi -->
+    <strong>SIM Surat Created By Pindi</strong> <a href="https://github.com/pinyink">Github</a>
+    <!-- please dont change this --> <!-- hargai kami selaku pembuat aplikasi -->
   </footer>
 
   <!-- control-sidebar -->
