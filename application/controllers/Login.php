@@ -22,6 +22,9 @@ class login extends CI_Controller {
 		$password = $this->input->post('txtPassword');
 		$password = md5($password);
 		$ip = $this->input->ip_address();
+		if ($ip == '::1') {
+			$ip = '0';
+		}
 		$user_agent = $this->input->user_agent();
 		$where = array(
 			'username' => $username,

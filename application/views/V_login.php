@@ -127,7 +127,7 @@
             },
             error: function (jqXHR, textStatus, errorThrown)
             {
-                alert('Error adding / update data');
+              console.log(jqXHR.responseText);
             }
         });
     }
@@ -154,7 +154,7 @@
           },
           error: function (jqXHR, textStatus, errorThrown)
           {
-              alert('Error adding / update data');
+              console.log(jqXHR.responseText);
           }
       });
     event.preventDefault();
