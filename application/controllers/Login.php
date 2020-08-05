@@ -83,6 +83,9 @@ class login extends CI_Controller {
 		$id = $this->session->userdata('id');
 		$query = $this->M_online->delete_online($id);
 		$ip = $this->input->ip_address();
+		if ($ip == '::1') {
+			$ip = '0';
+		}
 		$user_agent = $this->input->user_agent();
 		$log = array(
 			'id_user' => $id,
