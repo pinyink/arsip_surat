@@ -116,11 +116,6 @@
     $.ajax({
       url: "<?php echo base_url().'surat/masuk/lihat_scan/'; ?>"+id,
       type: "POST",
-      data: new FormData(this),
-      processData: false,
-      contentType:false,
-      cache : false,
-      async : true,
     })
     .done(function(data) {
       $('#list_scan').empty();
